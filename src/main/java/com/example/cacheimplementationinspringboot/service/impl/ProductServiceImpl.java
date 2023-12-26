@@ -34,7 +34,17 @@ public class ProductServiceImpl implements ProductService {
         return productRepo.save(product);
     }
 
-   private Cache<String ,List<Product>> myCache;
+    @Override
+    public String evictCache() {
+        System.out.println("the cache size before eviction is " + myCache.estimatedSize());
+       //myCache.invalidate("products");
+        myCache.invalidateAll();
+       System.out.println("the cache size after eviction is " + myCache.estimatedSize());
+
+        return "MyCache is evicted Successfully";
+    }
+
+    private Cache<String ,List<Product>> myCache;
 
     @PostConstruct
     private void initCache() {

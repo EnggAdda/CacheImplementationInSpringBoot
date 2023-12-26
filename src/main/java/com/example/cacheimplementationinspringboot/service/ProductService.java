@@ -9,4 +9,6 @@ public interface ProductService {
     List<Product> getAllProducts();
 
     Product insertProduct(Product product);
+
+    String evictCache();
 }

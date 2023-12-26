@@ -23,4 +23,5 @@ public class ProductController {
     Product insertProduct(@RequestBody Product product){
         return productService.insertProduct(product);
     }
+
 }
